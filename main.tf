@@ -32,3 +32,13 @@ resource "kafka_acl" "topic-a" {
   acl_operation       = "Read"
   acl_permission_type = "Deny"
 }
+
+resource "kafka_acl" "topic-aa" {
+  resource_name       = "topic-a"
+  resource_type       = "Topic"
+  acl_principal       = "User:Alice"
+  acl_host            = "*"
+  acl_operation       = "Write"
+  acl_permission_type = "Deny"
+}
+
