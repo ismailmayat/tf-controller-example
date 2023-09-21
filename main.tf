@@ -8,7 +8,7 @@ terraform {
 
 
 provider "kafka" {
-  bootstrap_servers = ["localhost:9092"]
+  bootstrap_servers = ["kafka.confluent.svc.cluster.local:9092"]
   ca_cert      = "ca.pem"
   client_cert  = "cert.pem"
   client_key   = "key.pem"
