@@ -42,3 +42,11 @@ resource "kafka_acl" "topic-aa" {
   acl_permission_type = "Deny"
 }
 
+module "kafka-connect" {
+  source = "./kafka-connect"
+  principal = "User:Alice"
+  status-topic = "connect-status"
+  offsets-topic = "connect-offsets"
+  configs-topic = "connect-configs"
+  
+}
