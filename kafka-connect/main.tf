@@ -6,14 +6,14 @@ terraform {
   }
 }
 
-resource "kafka_acl" "kafka-connect-cluster" {
-  resource_name       = "*"
-  resource_type       = "Cluster"
-  acl_principal       = var.principal
-  acl_host            = "*"
-  acl_operation       = "Create"
-  acl_permission_type = "Allow"
-}
+//resource "kafka_acl" "kafka-connect-cluster" {
+//  resource_name       = "*"
+//  resource_type       = "Cluster"
+//  acl_principal       = var.principal
+//  acl_host            = "*"
+//  acl_operation       = "Create"
+//  acl_permission_type = "Allow"
+//}
 
 resource "kafka_acl" "kafka-connect-consumer-group" {
   resource_name       = "*"
