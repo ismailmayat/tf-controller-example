@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    kafka = {
+      source = "Mongey/kafka"
+    }
+  }
+}
+
 resource "kafka_acl" "kafka-connect-cluster" {
   resource_name       = "*"
   resource_type       = "Cluster"
