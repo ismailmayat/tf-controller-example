@@ -49,3 +49,9 @@ module "kafka-connect" {
   offsets-topic = "confluent.connect-offsets"
   configs-topic = "confluent.connect-configs"
 }
+
+module "schema-registry" {
+  source = "./schema-registry"
+  principal = "User:schemaregisty"
+  schemas-topic = "_schemas_schemaregistry_confluent"
+}
