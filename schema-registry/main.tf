@@ -6,6 +6,17 @@ terraform {
   }
 }
 
+
+resource "kafka_acl" "schema-registry-group" {
+  resource_name       = "id_schemaregistry_confluent"
+  resource_type       = "Group"
+  acl_principal       = var.principal
+  acl_host            = "*"
+  acl_operation       = "Describe"
+  acl_permission_type = "Allow"
+}
+
+
 resource "kafka_acl" "schema-registry-schemas-configs" {
   resource_name       = var.schemas-topic
   resource_type       = "Topic"
@@ -24,7 +35,6 @@ resource "kafka_acl" "schema-registry-schemas-read" {
   acl_operation       = "Read"
   acl_permission_type = "Allow"
 }
-
 
 
 resource "kafka_acl" "schema-registry-schemas-write" {
