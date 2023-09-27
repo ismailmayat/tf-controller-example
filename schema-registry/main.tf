@@ -8,7 +8,7 @@ terraform {
 
 
 resource "kafka_acl" "schema-registry-group" {
-  resource_name       = "id_schemaregistry_confluent"
+  resource_name       = "*"
   resource_type       = "Group"
   acl_principal       = var.principal
   acl_host            = "*"

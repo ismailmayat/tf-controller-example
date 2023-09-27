@@ -52,6 +52,6 @@ module "kafka-connect" {
 
 module "schema-registry" {
   source = "./schema-registry"
-  principal = "User:schemaregisty"
+  principal = "User:schemaregistry"
   schemas-topic = "_schemas_schemaregistry_confluent"
 }
