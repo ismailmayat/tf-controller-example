@@ -44,9 +44,8 @@ resource "kafka_acl" "topic-aa" {
 
 module "kafka-connect" {
   source = "./kafka-connect"
-  principal = "User:Alice"
-  status-topic = "connect-status"
-  offsets-topic = "connect-offsets"
-  configs-topic = "connect-configs"
-  
+  principal = "User:connect"
+  status-topic = "confluent.connect-status"
+  offsets-topic = "confluent.connect-offsets"
+  configs-topic = "confluent.connect-configs"
 }
