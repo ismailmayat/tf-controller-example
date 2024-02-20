@@ -42,6 +42,28 @@ resource "kafka_acl" "topic-aa" {
   acl_permission_type = "Deny"
 }
 
+resource "kafka_acl" "topic-ismail" {
+  resource_name       = "ismail-test"
+  resource_type       = "Topic"
+  acl_principal       = "User:Ismail"
+  acl_host            = "*"
+  acl_operation       = "Write"
+  acl_permission_type = "Deny"
+}
+
+resource "kafka_topic" "ismail-test" {
+  name               = "ismail-test"
+  replication_factor = 1
+  partitions         = 4
+
+  config = {
+    "segment.ms"   = "4000"
+    "retention.ms" = "86400000"
+  }
+
+  depends_on = [kafka_acl.kafka_acl.topic-ismail]
+}
+
 module "kafka-connect" {
   source = "./kafka-connect"
   principal = "User:connect"
