@@ -53,7 +53,7 @@ resource "kafka_acl" "topic-ismail" {
 
 resource "kafka_topic" "ismail-test" {
   name               = "ismail-test"
-  replication_factor = 1
+  replication_factor = 4
   partitions         = 4
 
   config = {
@@ -61,7 +61,7 @@ resource "kafka_topic" "ismail-test" {
     "retention.ms" = "86400000"
   }
 
-  depends_on = [kafka_acl.kafka_acl.topic-ismail]
+  depends_on = [kafka_acl.topic-ismail]
 }
 
 module "kafka-connect" {
